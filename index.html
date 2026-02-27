@@ -530,6 +530,7 @@ new IntersectionObserver(function(entries) {
   if (entries[0].isIntersecting) loadBatch();
 }, { rootMargin: '200px' }).observe(document.getElementById('sentinel'));
 
+// eerste batch berekenen op basis van schermgrootte
 CONFIG.BATCH_SIZE = calcInitialBatch();
 loadBatch();
 CONFIG.BATCH_SIZE = 3;
