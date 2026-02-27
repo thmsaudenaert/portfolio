@@ -491,8 +491,9 @@ function buildCard(project) {
 
 function calcInitialBatch() {
   var colCount = window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
-  var avgCardHeight = window.innerHeight * 0.5;
-  var rows = Math.ceil(window.innerHeight / avgCardHeight) + 1;
+  var colWidth = (window.innerWidth - (window.innerWidth <= 480 ? 0 : 220)) / colCount;
+  var avgCardHeight = colWidth * 1.1;
+  var rows = Math.ceil(window.innerHeight / avgCardHeight) + 2;
   return colCount * rows;
 }
   
