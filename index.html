@@ -489,6 +489,13 @@ function buildCard(project) {
   return item;
 }
 
+function calcInitialBatch() {
+  var colCount = window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
+  var avgCardHeight = window.innerHeight * 0.5;
+  var rows = Math.ceil(window.innerHeight / avgCardHeight) + 1;
+  return colCount * rows;
+}
+  
 // ── LOAD BATCH ──
 var loadedCount = 0;
 var loading = false;
@@ -523,7 +530,9 @@ new IntersectionObserver(function(entries) {
   if (entries[0].isIntersecting) loadBatch();
 }, { rootMargin: '200px' }).observe(document.getElementById('sentinel'));
 
+CONFIG.BATCH_SIZE = calcInitialBatch();
 loadBatch();
+CONFIG.BATCH_SIZE = 3;
 </script>
 </body>
 </html>
