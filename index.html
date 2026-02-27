@@ -446,8 +446,7 @@ function buildCard(project) {
       current = ((n % slides.length) + slides.length) % slides.length;
       slides[current].classList.add('active');
       barEls.forEach(function(b, i) {
-        if (i < current) b.fill.style.width = '100%';
-        if (i > current) b.fill.style.width = '0%';
+      b.fill.style.width = '0%';
       });
       fillAnim = barEls[current].fill.animate(
         [{ width: '0%' }, { width: '100%' }],
