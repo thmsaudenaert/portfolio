@@ -96,6 +96,29 @@ const PROJECTS = [
   }    
 ];
 
+function getColCount() {
+  return window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
+}
+
+function initGrid() {
+  var grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  var cols = getColCount();
+  for (var i = 0; i < cols; i++) {
+    var col = document.createElement('div');
+    col.className = 'grid-col';
+    grid.appendChild(col);
+  }
+}
+
+function getShortestCol() {
+  var cols = document.querySelectorAll('.grid-col');
+  var shortest = cols[0];
+  cols.forEach(function(col) {
+    if (col.offsetHeight < shortest.offsetHeight) shortest = col;
+  });
+  return shortest;
+}
 // ── BUILD CARD ──
 function buildCard(project) {
   var item = document.createElement('div');
@@ -229,11 +252,10 @@ function loadBatch() {
   loading = true;
   document.getElementById('loader').classList.add('visible');
   setTimeout(function() {
-    var grid = document.getElementById('grid');
-    var end = Math.min(loadedCount + CONFIG.BATCH_SIZE, PROJECTS.length);
-    var reversed = PROJECTS.slice().reverse();
-    for (var i = loadedCount; i < end; i++) {
-    grid.appendChild(buildCard(reversed[i]));
+  var end = Math.min(loadedCount + CONFIG.BATCH_SIZE, PROJECTS.length);
+  var reversed = PROJECTS.slice().reverse();
+  for (var i = loadedCount; i < end; i++) {
+  getShortestCol().appendChild(buildCard(reversed[i]));
 }
     loadedCount = end;
     document.getElementById('loader').classList.remove('visible');
@@ -256,6 +278,19 @@ new IntersectionObserver(function(entries) {
 }, { rootMargin: '200px' }).observe(document.getElementById('sentinel'));
 
 // eerste batch berekenen op basis van schermgrootte
+initGrid();
 CONFIG.BATCH_SIZE = calcInitialBatch();
 loadBatch();
 CONFIG.BATCH_SIZE = 7;
+
+window.addEventListener('resize', function() {
+  var newCols = getColCount();
+  var currentCols = document.querySelectorAll('.grid-col').length;
+  if (newCols !== currentCols) {
+    loadedCount = 0;
+    initGrid();
+    CONFIG.BATCH_SIZE = calcInitialBatch();
+    loadBatch();
+    CONFIG.BATCH_SIZE = 7;
+  }
+});
