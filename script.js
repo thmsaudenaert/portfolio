@@ -41,18 +41,6 @@ function makePlaceholder(type) {
 // ── PROJECTS ──
 const PROJECTS = [
   {
-    title: 'where the trail breaks', type: 'motion design',
-    desc: 'Short character animation',
-    ratio: '16:9', barColor: 'white',
-    media: [{src:'images/pol-01.png',isVideo:false},{src:'images/pol-02.png',isVideo:false},{src:'images/pol-03.png',isVideo:false}]
-  },
-  {
-    title: 'event branding', type: 'branding',
-    desc: 'Poster en branding voor de 80-jarige jubileum-editie van het eetfestijn van Scouts Sint-Paulus',
-    ratio: '4:5',
-    media: [{src:'images/eetfestijn.png',isVideo:false}]
-  },
-  {
     title: 'motion reel 2025', type: 'motion design',
     desc: 'A selection of motion graphics and title sequences produced throughout 2024.',
     ratio: '16:9',
@@ -93,7 +81,19 @@ const PROJECTS = [
     desc: 'Selection of travel pictures, various destinations',
     ratio: '4:5',
     media: [{src:'images/moonpie-web.mp4',isVideo:false}]
-  }    
+  }, 
+  {
+    title: 'where the trail breaks', type: 'motion design',
+    desc: 'Short character animation',
+    ratio: '16:9', barColor: 'white',
+    media: [{src:'images/pol-01.png',isVideo:false},{src:'images/pol-02.png',isVideo:false},{src:'images/pol-03.png',isVideo:false}]
+  },
+  {
+    title: 'event branding', type: 'branding',
+    desc: 'Poster en branding voor de 80-jarige jubileum-editie van het eetfestijn van Scouts Sint-Paulus',
+    ratio: '4:5',
+    media: [{src:'images/eetfestijn.png',isVideo:false}]
+  }
 ];
 
 function getColCount() {
