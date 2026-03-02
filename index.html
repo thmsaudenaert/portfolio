@@ -507,9 +507,10 @@ function loadBatch() {
   setTimeout(function() {
     var grid = document.getElementById('grid');
     var end = Math.min(loadedCount + CONFIG.BATCH_SIZE, PROJECTS.length);
+    var reversed = PROJECTS.slice().reverse();
     for (var i = loadedCount; i < end; i++) {
-      grid.appendChild(buildCard(PROJECTS[i]));
-    }
+    grid.appendChild(buildCard(reversed[i]));
+}
     loadedCount = end;
     document.getElementById('loader').classList.remove('visible');
     loading = false;
