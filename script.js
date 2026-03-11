@@ -293,4 +293,9 @@ window.addEventListener('resize', function() {
     loadBatch();
     CONFIG.BATCH_SIZE = 7;
   }
+// Email obfuscation — wordt pas leesbaar door JS, niet door bots
+document.querySelectorAll('[data-email]').forEach(function(el) {
+  var email = atob(el.getAttribute('data-email'));
+  el.href = 'mailto:' + email;
+  el.textContent = email;
 });
