@@ -1,7 +1,7 @@
 // ── CONFIG ──
 const CONFIG = {
   SLIDE_DURATION_MS: 3000,
-  BATCH_SIZE: 3,
+  BATCH_SIZE: 6,
   BAR_COLOR_DEFAULT: 'white'
 };
 
@@ -39,6 +39,8 @@ function makePlaceholder(type) {
 }
 
 // ── PROJECTS ──
+// Voeg nieuwe projecten toe aan het EINDE van deze lijst.
+// Ze worden omgekeerd getoond (nieuwste bovenaan).
 const PROJECTS = [
   {
     title: 'motion reel 2025', type: 'motion design',
@@ -68,20 +70,20 @@ const PROJECTS = [
     title: 'b/w photography', type: 'photography',
     desc: 'Analog black & white street photography',
     ratio: '4:5',
-    media: [{src:'images/moonpie-web.mp4',isVideo:false}]
-  }, 
+    media: [{src:null,isVideo:false}]
+  },
   {
     title: 'social media ads', type: 'motion design',
     desc: 'Concept & creation for a fictional art-event',
     ratio: '1:1',
     media: [{src:'images/versus-web.mp4',isVideo:true}]
-  }, 
+  },
   {
     title: 'travel photography', type: 'photography',
     desc: 'Selection of travel pictures, various destinations',
     ratio: '4:5',
-    media: [{src:'images/moonpie-web.mp4',isVideo:false}]
-  }, 
+    media: [{src:null,isVideo:false}]
+  },
   {
     title: 'where the trail breaks', type: 'motion design',
     desc: 'Short character animation',
@@ -96,6 +98,7 @@ const PROJECTS = [
   }
 ];
 
+// ── GRID HELPERS ──
 function getColCount() {
   return window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
 }
@@ -119,6 +122,7 @@ function getShortestCol() {
   });
   return shortest;
 }
+
 // ── BUILD CARD ──
 function buildCard(project) {
   var item = document.createElement('div');
@@ -189,12 +193,9 @@ function buildCard(project) {
     function goTo(n) {
       if (fillAnim) { fillAnim.cancel(); fillAnim = null; }
       slides[current].classList.remove('active');
-      barEls[current].fill.style.width = current < n ? '100%' : '0%';
       current = ((n % slides.length) + slides.length) % slides.length;
       slides[current].classList.add('active');
-      barEls.forEach(function(b, i) {
-      b.fill.style.width = '0%';
-      });
+      barEls.forEach(function(b) { b.fill.style.width = '0%'; });
       fillAnim = barEls[current].fill.animate(
         [{ width: '0%' }, { width: '100%' }],
         { duration: CONFIG.SLIDE_DURATION_MS, easing: 'linear', fill: 'forwards' }
@@ -232,31 +233,30 @@ function buildCard(project) {
     }
   }, { passive: true });
 
+  // blokkeer rechtermuisklik op afbeeldingen en video's
+  item.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+      e.preventDefault();
+    }
+  });
+
   return item;
 }
 
-function calcInitialBatch() {
-  var colCount = window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
-  var colWidth = (window.innerWidth - (window.innerWidth <= 480 ? 0 : 220)) / colCount;
-  var avgCardHeight = colWidth * 1.1;
-  var rows = Math.ceil(window.innerHeight / avgCardHeight) + 2;
-  return colCount * rows;
-}
-  
 // ── LOAD BATCH ──
 var loadedCount = 0;
 var loading = false;
+var reversedProjects = PROJECTS.slice().reverse();
 
 function loadBatch() {
-  if (loading || loadedCount >= PROJECTS.length) return;
+  if (loading || loadedCount >= reversedProjects.length) return;
   loading = true;
   document.getElementById('loader').classList.add('visible');
   setTimeout(function() {
-  var end = Math.min(loadedCount + CONFIG.BATCH_SIZE, PROJECTS.length);
-  var reversed = PROJECTS.slice().reverse();
-  for (var i = loadedCount; i < end; i++) {
-  getShortestCol().appendChild(buildCard(reversed[i]));
-}
+    var end = Math.min(loadedCount + CONFIG.BATCH_SIZE, reversedProjects.length);
+    for (var i = loadedCount; i < end; i++) {
+      getShortestCol().appendChild(buildCard(reversedProjects[i]));
+    }
     loadedCount = end;
     document.getElementById('loader').classList.remove('visible');
     loading = false;
@@ -275,22 +275,26 @@ document.addEventListener('touchend', function(e) {
 // infinite scroll
 new IntersectionObserver(function(entries) {
   if (entries[0].isIntersecting) loadBatch();
-}, { rootMargin: '200px' }).observe(document.getElementById('sentinel'));
+}, { rootMargin: '600px' }).observe(document.getElementById('sentinel'));
 
-// eerste batch berekenen op basis van schermgrootte
+// email obfuscatie
+document.querySelectorAll('[data-email]').forEach(function(el) {
+  var email = atob(el.getAttribute('data-email'));
+  el.href = 'mailto:' + email;
+  el.textContent = email;
+});
+
+// init
 initGrid();
-CONFIG.BATCH_SIZE = calcInitialBatch();
 loadBatch();
-CONFIG.BATCH_SIZE = 7;
 
+// herlaad grid bij schermgrootte-verandering
 window.addEventListener('resize', function() {
   var newCols = getColCount();
   var currentCols = document.querySelectorAll('.grid-col').length;
   if (newCols !== currentCols) {
     loadedCount = 0;
     initGrid();
-    CONFIG.BATCH_SIZE = calcInitialBatch();
     loadBatch();
-    CONFIG.BATCH_SIZE = 7;
   }
 });
