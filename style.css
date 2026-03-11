@@ -156,7 +156,7 @@ main { margin-left: var(--nav-w); flex: 1; padding: 40px 40px 80px; min-height: 
 .story-bar-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--bar-fill); border-radius: 1px; }
 
 /* ── LOADER ── */
-.sentinel { height: 1px; width: 100%; }
+.sentinel { height: 1px; width: 100%; display: block; clear: both; }
 .loading-indicator { text-align: center; padding: 40px; font-size: 10px; color: var(--muted); letter-spacing: 0.2em; display: none; }
 .loading-indicator.visible { display: block; }
 
@@ -185,3 +185,8 @@ main { margin-left: var(--nav-w); flex: 1; padding: 40px 40px 80px; min-height: 
   .grid { gap: 4px; }
   .grid-col { gap: 4px; }
 }
+video::-webkit-media-controls { display: none !important; }
+video::-webkit-media-controls-enclosure { display: none !important; }
+video::-webkit-media-controls-panel { display: none !important; }
+video::-webkit-media-controls-play-button { display: none !important; }
+video::-webkit-media-controls-start-playback-button { display: none !important; }
