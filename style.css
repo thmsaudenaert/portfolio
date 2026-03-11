@@ -181,8 +181,3 @@ main { margin-left: var(--nav-w); flex: 1; padding: 40px 40px 80px; min-height: 
   .grid { column-gap: 4px; }
   .grid-item { margin-bottom: 4px; }
 }
-.grid-item img, .grid-item video {
-  pointer-events: none;
-  -webkit-user-drag: none;
-  user-select: none;
-}
