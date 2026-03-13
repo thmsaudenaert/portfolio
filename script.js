@@ -94,7 +94,7 @@ const PROJECTS = [
     title: 'where the trail breaks', type: 'motion design',
     desc: 'Short character animation',
     ratio: '16:9', barColor: 'white',
-    media: [{src:'images/pol-01.png',isVideo:false},{src:'images/pol-02.png',isVideo:false},{src:'images/pol-03.png',isVideo:false}]
+    media: [{src:'images/pol.mp4',isVideo:true}]
   },
   {
     title: 'event branding', type: 'branding',
