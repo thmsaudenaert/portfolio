@@ -1,7 +1,7 @@
 // ── CONFIG ──
 const CONFIG = {
   SLIDE_DURATION_MS: 3000,
-  BATCH_SIZE: 6,
+  BATCH_SIZE: 8,
   BAR_COLOR_DEFAULT: 'white'
 };
 
