@@ -94,7 +94,7 @@ const PROJECTS = [
     title: 'event branding', type: 'branding',
     desc: 'Poster en branding voor de 80-jarige jubileum-editie van het eetfestijn van Scouts Sint-Paulus',
     ratio: '4:5',
-    media: [{src:'images/eetfestijn.png',isVideo:false}]
+    media: [{src:'images/eetfestijn.webp',isVideo:false}]
   }
 ];
 
