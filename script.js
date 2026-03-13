@@ -58,7 +58,7 @@ const PROJECTS = [
     title: 'moonpie ad', type: 'motion design',
     desc: '3D animated ad for the limited "Solar Eclipse" edition of Moonpie cookies',
     ratio: '16:9',
-    media: [{src:'images/moonpie-web-comp.mp4',isVideo:true}]
+    media: [{src:'images/Moonpie-Web-Comp.mp4',isVideo:true}]
   },
   {
     title: 'b/w photography', type: 'photography',
@@ -70,7 +70,7 @@ const PROJECTS = [
     title: 'social media ads', type: 'motion design',
     desc: 'Concept & creation for a fictional art-event',
     ratio: '1:1',
-    media: [{src:'images/versus-web-comp.mp4',isVideo:true}]
+    media: [{src:'images/Versus-Web-Comp.mp4',isVideo:true}]
   },
   {
     title: 'travel photography', type: 'photography',
