@@ -85,6 +85,12 @@ const PROJECTS = [
     media: [{src:'images/travel-00.webp',isVideo:false},{src:'images/travel-06.webp',isVideo:false},{src:'images/travel-01.webp',isVideo:false},{src:'images/travel-02.webp',isVideo:false},{src:'images/travel-03.webp',isVideo:false},{src:'images/travel-04.webp',isVideo:false},{src:'images/travel-05.webp',isVideo:false}]
   },
   {
+    title: 'social media carousel', type: 'graphic design',
+    desc: 'Social media carousel to inform people about heatwave measures',
+    ratio: '1:1', barColor: 'white',
+    media: [{src:'images/carousel-warmte-01.webp',isVideo:false},{src:'images/carousel-warmte-02.webp',isVideo:false},{src:'images/carousel-warmte-03.webp',isVideo:false},{src:'images/carousel-warmte-04.webp',isVideo:false},{src:'images/carousel-warmte-05.webp',isVideo:false}]
+  },  
+  {
     title: 'where the trail breaks', type: 'motion design',
     desc: 'Short character animation',
     ratio: '16:9', barColor: 'white',
