@@ -70,7 +70,7 @@ const PROJECTS = [
     title: 'b/w photography', type: 'photography',
     desc: 'Analog black & white street photography',
     ratio: '4:5',
-    media: [{src:null,isVideo:false}]
+    media: [{src:'images/bw-analoog-01.webp',isVideo:false},{src:'images/bw-analoog-02.webp',isVideo:false},{src:'images/bw-analoog-03.webp',isVideo:false},{src:'images/bw-analoog-04.webp',isVideo:false}]
   },
   {
     title: 'social media ads', type: 'motion design',
@@ -82,7 +82,7 @@ const PROJECTS = [
     title: 'travel photography', type: 'photography',
     desc: 'Selection of travel pictures, various destinations',
     ratio: '4:5',
-    media: [{src:null,isVideo:false}]
+    media: [{src:'images/travel-00.webp',isVideo:false},{src:'images/travel-06.webp',isVideo:false},{src:'images/travel-01.webp',isVideo:false},{src:'images/travel-02.webp',isVideo:false},{src:'images/travel-03.webp',isVideo:false},{src:'images/travel-04.webp',isVideo:false},{src:'images/travel-05.webp',isVideo:false}]
   },
   {
     title: 'where the trail breaks', type: 'motion design',
