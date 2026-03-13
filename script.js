@@ -43,12 +43,6 @@ function makePlaceholder(type) {
 // Ze worden omgekeerd getoond (nieuwste bovenaan).
 const PROJECTS = [
   {
-    title: 'motion reel 2025', type: 'motion design',
-    desc: 'A selection of motion graphics and title sequences produced throughout 2024.',
-    ratio: '16:9',
-    media: [{src:'images/thomas-reel2025.mp4',isVideo:true}]
-  },
-  {
     title: 'webinar video identity', type: 'motion design',
     desc: 'Webinar transitions for a series to help clients utilise software',
     ratio: '16:9', barColor: 'white',
