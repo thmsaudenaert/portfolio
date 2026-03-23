@@ -73,16 +73,22 @@ const PROJECTS = [
     media: [{src:'images/2024_ATT_Attie_App_icon_IOS.webp',isVideo:false},{src:'images/2024_ATT_Attie_Logo_iPad_new_Gen.webp',isVideo:false}]
   },
   {
-    title: 'social media ads', type: 'motion design',
-    desc: 'Concept & creation for a fictional art-event',
-    ratio: '1:1',
-    media: [{src:'images/Versus-Web-comp.mp4',isVideo:true}]
-  },
-  {
     title: 'travel photography', type: 'photography',
     desc: 'Selection of travel pictures, various destinations',
     ratio: '4:5',
     media: [{src:'images/travel-00.webp',isVideo:false},{src:'images/travel-06.webp',isVideo:false},{src:'images/travel-01.webp',isVideo:false},{src:'images/travel-02.webp',isVideo:false},{src:'images/travel-03.webp',isVideo:false},{src:'images/travel-04.webp',isVideo:false},{src:'images/travel-05.webp',isVideo:false}]
+  },
+  {
+    title: 'social media carousel', type: 'graphic design',
+    desc: 'Social media carousel to promote people to stand up more',
+    ratio: '1:1',
+    media: [{src:'images/2025-1010-Carousel-01.webp',isVideo:false},{src:'images/2025-1010-Carousel-02.webp',isVideo:false},{src:'images/2025-1010-Carousel-03.webp',isVideo:false},{src:'images/2025-1010-Carousel-04.webp',isVideo:false},{src:'images/2025-1010-Carousel-05.webp',isVideo:false}]
+  },
+  {
+    title: 'social media ads', type: 'motion design',
+    desc: 'Concept & creation for a fictional art-event',
+    ratio: '1:1',
+    media: [{src:'images/Versus-Web-comp.mp4',isVideo:true}]
   },
   {
     title: 'social media carousel', type: 'graphic design',
