@@ -165,6 +165,7 @@ function buildCard(project) {
       v.src = m.src; v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
       v.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.25,.46,.45,.94)';
       item.appendChild(v);
+attemptPlay(v);
     } else {
       var img = document.createElement('img');
       img.src = m.src || makePlaceholder(project.type);
