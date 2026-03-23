@@ -61,10 +61,16 @@ const PROJECTS = [
     media: [{src:'images/Moonpie-Web-comp.mp4',isVideo:true}]
   },
   {
-    title: 'b/w photography', type: 'photography',
+    title: 'black & white photography', type: 'photography',
     desc: 'Analog black & white street photography',
     ratio: '4:5',
     media: [{src:'images/bw-analoog-01.webp',isVideo:false},{src:'images/bw-analoog-02.webp',isVideo:false},{src:'images/bw-analoog-03.webp',isVideo:false},{src:'images/bw-analoog-04.webp',isVideo:false}]
+  },
+  {
+    title: 'app branding', type: 'branding',
+    desc: 'Branding identity for an official app',
+    ratio: '1:1',
+    media: [{src:'images/2024_ATT_Attie_App_icon_IOS.webp',isVideo:false},{src:'images/2024_ATT_Attie_Logo_iPad_new_Gen.webp',isVideo:false}]
   },
   {
     title: 'social media ads', type: 'motion design',
