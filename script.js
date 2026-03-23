@@ -103,6 +103,20 @@ function getColCount() {
   return window.innerWidth <= 480 ? 2 : window.innerWidth <= 1100 ? 2 : 3;
 }
 
+// Safari iOS autoplay fix
+function attemptPlay(video) {
+  var playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(function() {
+      // Autoplay geblokkeerd — probeer opnieuw bij eerste interactie
+      document.addEventListener('touchstart', function handler() {
+        video.play();
+        document.removeEventListener('touchstart', handler);
+      }, { once: true, passive: true });
+    });
+  }
+}
+
 function initGrid() {
   var grid = document.getElementById('grid');
   grid.innerHTML = '';
