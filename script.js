@@ -71,6 +71,12 @@ const PROJECTS = [
     desc: 'Branding identity for an official app',
     ratio: '1:1',
     media: [{src:'images/2024_ATT_Attie_App_icon_IOS.webp',isVideo:false},{src:'images/2024_ATT_Attie_Logo_iPad_new_Gen.webp',isVideo:false}]
+  }, 
+  {
+    title: 'Folding brochure', type: 'print',
+    desc: 'First aid brochure containing all essential information in case of emergency',
+    ratio: '16:9',
+    media: [{src:'images/ehbo-fold.webp',isVideo:false}]
   },
   {
     title: 'travel photography', type: 'photography',
