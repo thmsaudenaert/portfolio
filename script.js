@@ -73,16 +73,22 @@ const PROJECTS = [
     media: [{src:'images/2024_ATT_Attie_App_icon_IOS.webp',isVideo:false},{src:'images/2024_ATT_Attie_Logo_iPad_new_Gen.webp',isVideo:false}]
   }, 
   {
-    title: 'Fictional art event branding', type: 'motion design',
+    title: 'fictional art event branding', type: 'motion design',
     desc: 'Branding and social media post for a fictional art event, possible usage as a print poster',
     ratio: '4:5',
     media: [{src:'images/Avantform.mp4',isVideo:true}]
   },
   {
-    title: 'Folding brochure', type: 'print',
+    title: 'folding brochure', type: 'print',
     desc: 'First aid brochure containing all essential information in case of emergency',
     ratio: '16:9',
     media: [{src:'images/ehbo-fold.webp',isVideo:false}]
+  },
+  {
+    title: 'comedic advertisement', type: 'print',
+    desc: 'Fictional ad for a cleaning company',
+    ratio: '16:9',
+    media: [{src:'images/Carolin-Cleaner.mp4',isVideo:true}]
   },
   {
     title: 'travel photography', type: 'photography',
